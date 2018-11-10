@@ -11,6 +11,7 @@ import {Nastaveni} from '../pages/nastaveni/nastaveni';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PocasiProvider } from '../providers/pocasi/pocasi';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PocasiProvider
   ]
 })
 export class AppModule {}
