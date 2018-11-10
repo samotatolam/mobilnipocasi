@@ -18,8 +18,13 @@ export class HomePage {
 
   ionViewWillEnter(){
     this.location = {
-      city: 'Miami' 
+      city: 'Calgary' 
     }
+
+    this.pocasiProvider.getPocasi(this.location.city)
+    .subscribe(pocasi => {
+      console.log(pocasi);
+    });
   }
 
 }
