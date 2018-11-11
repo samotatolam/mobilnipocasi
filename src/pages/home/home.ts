@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {PocasiProvider} from '../../providers/pocasi/pocasi';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-home',
@@ -24,6 +25,7 @@ export class HomePage {
     this.pocasiProvider.getPocasi(this.location.city)
     .subscribe(pocasi => {
       console.log(pocasi);
+      this.pocasi = pocasi.weather;
     });
   }
 

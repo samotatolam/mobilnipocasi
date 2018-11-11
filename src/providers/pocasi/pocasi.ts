@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PocasiProvider {
   apiKey = '4b1f6959f47473915fb1e08d553cee60';
-  town = 'Paris';
+  town = 'Prague';
   url;
 
   constructor(public http: HttpClient) {
@@ -13,7 +14,8 @@ export class PocasiProvider {
   }
 
   getPocasi(city){
-    return this.http.get(this.url);
+    return this.http.get(this.url)
+      .map(res => res);
   }
 
 }
