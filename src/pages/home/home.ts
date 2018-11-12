@@ -22,13 +22,16 @@ export class HomePage {
   }
 
   ionViewWillEnter(){
-    
-    
-    this.location = {
-      city: 'Prague' 
-    } 
+    this.storage.get('location').then((hod) => {
+      if(hod != null){
+        this.location = JSON.parse(hod);
+      }else{
+        this.location = {
+          city: 'Paris' 
+        } 
+      }
 
-    this.pocasiProvider.getPocasi(this.location.city)
+      this.pocasiProvider.getPocasi(this.location.city)
     .subscribe(pocasi => {
       //console.log(pocasi);
       this.pocasi = pocasi.name;
@@ -41,8 +44,7 @@ export class HomePage {
       //console.log(pocasi);
       this.temperature = pocasi.main.temp;
     });
-
-
+    });
   }
 
 }
