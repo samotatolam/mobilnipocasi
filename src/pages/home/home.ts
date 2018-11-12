@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
   pocasi:any;
+  temperature: any;
   location:{
     city:string
   }
@@ -24,9 +25,19 @@ export class HomePage {
 
     this.pocasiProvider.getPocasi(this.location.city)
     .subscribe(pocasi => {
-      console.log(pocasi);
+      //console.log(pocasi);
       this.pocasi = pocasi.name;
     });
+
+
+    this.pocasiProvider.getPocasi(this.location.city)
+ 
+    .subscribe(pocasi => {
+      //console.log(pocasi);
+      this.temperature = pocasi.main.temp;
+    });
+
+
   }
 
 }
