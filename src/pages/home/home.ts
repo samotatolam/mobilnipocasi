@@ -33,7 +33,7 @@ export class HomePage {
     this.pocasiProvider.getPocasi(this.location.city)
  
     .subscribe(pocasi => {
-      console.log(pocasi);
+      //console.log(pocasi);
       this.temperature = pocasi.main.temp;
     });
 
