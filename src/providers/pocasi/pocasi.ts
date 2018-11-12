@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PocasiProvider {
   apiKey = '4b1f6959f47473915fb1e08d553cee60';
-  town = 'Moscow';
+  town = 'Zlin';
   url;
 
   constructor(public http: HttpClient) {
