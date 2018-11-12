@@ -14,8 +14,8 @@ export class PocasiProvider {
   }
 
   getPocasi(city){
-    return this.http.get(this.url)
-      .map(res => res);
+    return this.http.get(this.url);
+      //.map(res => res);
   }
 
 }
