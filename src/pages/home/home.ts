@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {PocasiProvider} from '../../providers/pocasi/pocasi';
 import 'rxjs/add/operator/map';
+import {Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -14,11 +15,15 @@ export class HomePage {
     city:string
   }
   
-  constructor(public navCtrl: NavController, private pocasiProvider:PocasiProvider) {
+  constructor(public navCtrl: NavController, 
+    private pocasiProvider:PocasiProvider,
+    private storage:Storage) {
 
   }
 
   ionViewWillEnter(){
+    
+    
     this.location = {
       city: 'Prague' 
     } 
