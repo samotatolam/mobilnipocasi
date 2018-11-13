@@ -29,4 +29,11 @@ export class Nastaveni {
     //console.log('ionViewDidLoad Nastaveni');
   }
 
+  ulozForm(){
+    let location = {
+      city: this.city
+    }
+    console.log(location);
+  }
+
 }
