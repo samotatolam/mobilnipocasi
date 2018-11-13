@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the NastaveniPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -16,12 +10,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class Nastaveni {
   city: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.city = 'Prague';
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storage:Storage) {
+
+      this.storage.get('location').then((hod) => {
+        if(hod != null){
+          let location = JSON.parse(hod);
+          this.city = location.city;  
+        } else {
+          this.city = 'Prague';
+        }
+      });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Nastaveni');
+    //console.log('ionViewDidLoad Nastaveni');
   }
 
 }
