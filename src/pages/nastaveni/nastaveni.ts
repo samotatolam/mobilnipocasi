@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { HomePage} from '../home/home';
 
 @IonicPage()
 @Component({
@@ -33,7 +34,9 @@ export class Nastaveni {
     let location = {
       city: this.city
     }
-    console.log(location);
+    this.storage.set('location', JSON.stringify(location));
+    //navigujeme zpatky na HomePage
+    this.navCtrl.push(HomePage);
   }
 
 }
