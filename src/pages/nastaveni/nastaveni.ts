@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'nastaveni.html',
 })
 export class Nastaveni {
+  city: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.city = 'Prague';
   }
 
   ionViewDidLoad() {
