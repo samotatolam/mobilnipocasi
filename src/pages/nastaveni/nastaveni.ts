@@ -21,13 +21,13 @@ export class Nastaveni {
           let location = JSON.parse(hod);
           this.city = location.city;  
         } else {
-          this.city = 'Prague';
+          this.city = 'Paris';
         }
       });
   }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad Nastaveni');
+    console.log('ionViewDidLoad Nastaveni');
   }
 
   ulozForm(){
