@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {PocasiProvider} from '../../providers/pocasi/pocasi';
-import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/map';
 import {Storage } from '@ionic/storage';
+import { MissingTranslationStrategy } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'page-home',
@@ -34,7 +35,8 @@ export class HomePage {
       this.pocasiProvider.getPocasi(this.location.city)
     .subscribe(pocasi => {
       //console.log(pocasi);
-      this.pocasi = pocasi.name;
+      //this.pocasi = pocasi.name;
+      this.pocasi = pocasi['name'];
     });
 
 
@@ -42,7 +44,9 @@ export class HomePage {
  
     .subscribe(pocasi => {
       //console.log(pocasi);
-      this.temperature = pocasi.main.temp;
+      //this.temperature = pocasi.main.temp;
+      //this.temperature = pocasi.main['temp'];
+      this.temperature = pocasi['main'].temp;
     });
     });
   }
